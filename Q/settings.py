@@ -69,7 +69,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Q.wsgi.application'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases

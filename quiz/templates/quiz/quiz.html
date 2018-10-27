@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi Employee {{ user.username }}!
+  <p>Q 1</p>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>unauthorised access</p>
+
+{% endif %}
+{% endblock %}

@@ -5,9 +5,12 @@
 {% block content %}
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
+  <p><a href="{% url 'quiz' %}">You may proceed to take the quiz </a></p>
+  <p>or </p>
   <p><a href="{% url 'logout' %}">logout</a></p>
 {% else %}
-  <p>You are not logged in</p>
+  <p>Hello!</p>
+  <p>You may please login to take the quiz</p>
   <a href="{% url 'login' %}">login</a>
 {% endif %}
 {% endblock %}

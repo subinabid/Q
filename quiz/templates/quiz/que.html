@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Quiz{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi Employee {{ user.username }}!
+
+    {% if que_list %}
+      {% for question in que_list %}
+          <p>{{ question.question_text }}<p>
+          <p>{{has_options }}<p>
+          <p>{{has_media }}<p>  
+          {% if has_options == 'Y' %}
+            <p>options</p>
+          {% else %}
+            <p> NO options</p>
+          {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% if que_id == 1 %}
+      <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
+    {% else %}
+      <p><a href="/quiz/{{que_id | add:"-1" }}/">previous</a></p>
+      <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
+    {% endif %}
+
+{% else %}
+  <p>unauthorised access</p>
+{% endif %}
+
+{% endblock %}

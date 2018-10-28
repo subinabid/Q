@@ -7,22 +7,35 @@
 
     {% if que_list %}
       {% for question in que_list %}
+          <p>Question # {{question.question_id}}</p>
           <p>{{ question.question_text }}<p>
-          <p>{{has_options }}<p>
-          <p>{{has_media }}<p>  
+
           {% if has_options == 'Y' %}
             <p>options</p>
           {% else %}
-            <p> NO options</p>
+            <form action="" method="post">
+            {{ form }}
+            <input type="submit" value="Submit">
+            </form>
           {% endif %}
-      {% endfor %}
-    {% endif %}
 
-    {% if que_id == 1 %}
-      <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
-    {% else %}
-      <p><a href="/quiz/{{que_id | add:"-1" }}/">previous</a></p>
-      <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
+
+          {% if has_media == 'Y' %}
+            <p>media goes here</p>
+          {% else %}
+            <p>no media to display</p>
+          {% endif %}
+
+          {% if que_id == 1 %}
+            <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
+          {% elif que_id < 4 %}
+            <p><a href="/quiz/{{que_id | add:"-1" }}/">previous</a></p>
+            <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
+          {% else %}
+            <p>Thank you for taking the test <a href="{% url 'logout' %}">click here </a> to exit</p>
+          {% endif %}
+
+      {% endfor %}
     {% endif %}
 
 {% else %}

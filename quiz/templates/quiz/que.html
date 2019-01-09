@@ -13,9 +13,10 @@
           {% if has_options == 'Y' %}
             <p>options</p>
           {% else %}
-            <form action="" method="post">
-            {{ form }}
-            <input type="submit" value="Submit">
+            <form action = "" method="post">
+              {% csrf_token %}
+              {{ form }}
+              <input type="submit" value="Submit">
             </form>
           {% endif %}
 

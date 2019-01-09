@@ -11,5 +11,6 @@ def que(request, que_id):
     q= question.objects.get(pk = que_id)
     has_options = q.has_options
     has_media = q.has_media
-    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media}
+    form = AnswerForm()
+    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form' : form}
     return render(request, 'quiz/que.html', context)

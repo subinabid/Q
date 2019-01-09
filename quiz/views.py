@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import question
-from .forms import AnswerForm
+from .forms import AnswerForm, OptionsForm
 
 def quiz(request):
     return render(request, 'quiz/quiz.html',{})
@@ -11,6 +11,7 @@ def que(request, que_id):
     q= question.objects.get(pk = que_id)
     has_options = q.has_options
     has_media = q.has_media
-    form = AnswerForm()
-    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form' : form}
+    form1 = OptionsForm()
+    form2 = AnswerForm()
+    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2}
     return render(request, 'quiz/que.html', context)

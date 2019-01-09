@@ -11,20 +11,18 @@
           <p>{{ question.question_text }}<p>
 
           {% if has_options == 'Y' %}
-            <p>options</p>
+          <form action = "" method="post">
+            {% csrf_token %}
+            {{ form1 }}
+            <input type="submit" value="Submit">
+          </form>
+
           {% else %}
             <form action = "" method="post">
               {% csrf_token %}
-              {{ form }}
+              {{ form2 }}
               <input type="submit" value="Submit">
             </form>
-          {% endif %}
-
-
-          {% if has_media == 'Y' %}
-            <p>media goes here</p>
-          {% else %}
-            <p>no media to display</p>
           {% endif %}
 
           {% if que_id == 1 %}
@@ -34,6 +32,12 @@
             <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
           {% else %}
             <p>Thank you for taking the test <a href="{% url 'logout' %}">click here </a> to exit</p>
+          {% endif %}
+
+          {% if has_media == 'Y' %}
+            <p>media goes here</p>
+          {% else %}
+            <p>no media to display</p>
           {% endif %}
 
       {% endfor %}

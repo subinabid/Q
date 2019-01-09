@@ -11,14 +11,14 @@
           <p>{{ question.question_text }}<p>
 
           {% if has_options == 'Y' %}
-          <form action = "" method="post">
+          <form action = "submit" method="post">
             {% csrf_token %}
             {{ form1 }}
             <input type="submit" value="Submit">
           </form>
 
           {% else %}
-            <form action = "" method="post">
+            <form action = "submit" method="post">
               {% csrf_token %}
               {{ form2 }}
               <input type="submit" value="Submit">

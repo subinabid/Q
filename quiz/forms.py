@@ -7,4 +7,4 @@ class AnswerForm(forms.Form):
 class OptionsForm(forms.Form):
     CHOICES=[('select1','select 1'),
              ('select2','select 2')]
-    options = forms.ChoiceField(label='Select Your Answer', choices=CHOICES,  widget = forms.RadioSelect)
+    answer = forms.ChoiceField(label='Select Your Answer', choices=CHOICES,  widget = forms.RadioSelect)

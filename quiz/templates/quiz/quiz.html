@@ -4,13 +4,13 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi Employee {{ user.username }}!
+  <p>Hi Employee {{ user.username }}!</p>
   <p>you have successfully logged in</p>
   <p>Questions will be displayed to you one after the other</p>
   <p>You can answer them or skip the question and proceed to the next question </p>
   <p>Youy can come back to an unanswered question later</p>
   <p>You may proceed to <a href="1">question 1</a></p>
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <p><a href="{% url 'logout' %}" class="button">logout</a></p>
 {% else %}
   <p>unauthorised access</p>
 

@@ -26,10 +26,9 @@
           {% endif %}
 
           {% if que_id == 1 %}
-            <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
+            <p><a href="/quiz/{{que_id | add:"1" }}/" class = "button">next</a></p>
           {% elif que_id < 4 %}
-            <p><a href="/quiz/{{que_id | add:"-1" }}/">previous</a></p>
-            <p><a href="/quiz/{{que_id | add:"1" }}/">next</a></p>
+            <p><a href="/quiz/{{que_id | add:"-1" }}/"  class = "button">previous</a> <a href="/quiz/{{que_id | add:"1" }}/"  class = "button">next</a></p>
           {% else %}
             <p>Thank you for taking the test <a href="{% url 'logout' %}">click here </a> to exit</p>
           {% endif %}

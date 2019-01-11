@@ -1,14 +1,36 @@
-html{
+html, body{
   height: 100%
 }
 
 .banner {
   background: #0C4B33;
   padding: 10px 0 6px;
-  color: #fff;
+  color: #44B78B;
+  width: 100%;
+  font-weight: 800;
+  font-size: 1.3rem
 }
 
 .container {
   margin: 0 auto;
-  padding: 0px 50px 10px 50px;
+  padding: 0px 50px 3px 50px;
+}
+
+.footer {
+  background: #0C4B33;
+  padding: 3px 0 0 0;
+  color: #44B78B;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.button {
+  background-color: #44B78B;
+  padding: 10px 15px;
+  border-radius: 2px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }

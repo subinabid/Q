@@ -34,3 +34,14 @@ html, body{
   text-decoration: none;
   display: inline-block;
 }
+
+.centre-stage{
+  background-color: #D3D3D3
+  height: 500px;
+  widht: 400px;
+  position: absolute;
+  left: 50%
+  top: 50%
+  margin-left: -200px;
+
+}

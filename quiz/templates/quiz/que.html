@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Quiz | Questions{% endblock %}
 
+{% block hello %}
+  {% if user.is_authenticated %}
+     - Hi Employee {{ user.username }}!
+  {% endif %}
+{% endblock %}
+
 {% block content %}
   {% if user.is_authenticated %}
-    Hi Employee {{ user.username }}!
+
     {% if que_list %}
       {% for question in que_list %}
 

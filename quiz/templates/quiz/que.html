@@ -37,7 +37,7 @@
             <p><a href="/quiz/{{que_id | add:"-1" }}/"  class = "button">Previous</a> <a href="/quiz/{{que_id | add:"1" }}/"  class = "button">Next</a></p>
 
           {% else %}
-            <p>Thank you for taking the test <a href="{% url 'logout' %}">click here </a> to exit</p>
+            <p>Thank you for taking the test <a href="{% url 'submission' %}">click here </a> to view your submission</p>
           {% endif %}
 
           {% if has_media == 'Y' %}

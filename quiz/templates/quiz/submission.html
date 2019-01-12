@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz - Submitted Answers{% endblock %}
+
+{% block hello %}
+  {% if user.is_authenticated %}
+     - Hi Employee {{ user.username }}, here is a summary of answers you submitted
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <table>
+      <tr class="tableheader">  <td>Question</td> <td>Answer</td> </tr>
+      {% for sub in subanswers %}
+        <tr> <td> {{ sub.question_id }}</td> <td>{{ sub.answer}}</td> </tr>
+      {% endfor%}
+    </table>
+    <p>You may please <a href="{% url 'logout' %}" class="button">Logout</a></p>
+
+  {% else %}
+    <p>unauthorised access</p>
+  {% endif %}
+
+{% endblock %}

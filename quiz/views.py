@@ -17,7 +17,6 @@ def que(request, que_id):
     return render(request, 'quiz/que.html', context)
 
 def submit(request, que_id):
-
     p = answers(question_id = que_id, user = request.user.get_username(), answer = request.POST.get("answer") )
     p.save()
     que_list = question.objects.filter(question_id = que_id )
@@ -28,3 +27,8 @@ def submit(request, que_id):
     form2 = AnswerForm()
     context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(10)}
     return render(request, 'quiz/que.html', context)
+
+def submission(request):
+    subanswers = answers.objects.filter(user = request.user.get_username())
+    context = {'subanswers': subanswers}
+    return render(request,'quiz/submission.html', context)

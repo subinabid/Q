@@ -2,26 +2,26 @@
 {% block title %}Quiz | Questions{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi Employee {{ user.username }}!
-
+  {% if user.is_authenticated %}
+    Hi Employee {{ user.username }}!
     {% if que_list %}
       {% for question in que_list %}
+
           <p>Question # {{question.question_id}}</p>
           <p>{{ question.question_text }}<p>
 
           {% if has_options == 'Y' %}
-          <form action = "submit" method="post">
+            <form action = "submit" method="post">
             {% csrf_token %}
             {{ form1 }}
             <input type="submit" value="Submit">
-          </form>
+            </form>
 
           {% else %}
             <form action = "submit" method="post">
-              {% csrf_token %}
-              {{ form2 }}
-              <input type="submit" value="Submit">
+            {% csrf_token %}
+            {{ form2 }}
+            <input type="submit" value="Submit">
             </form>
           {% endif %}
 
@@ -29,6 +29,7 @@
             <p><a href="/quiz/{{que_id | add:"1" }}/" class = "button">Next</a></p>
           {% elif que_id < 4 %}
             <p><a href="/quiz/{{que_id | add:"-1" }}/"  class = "button">Previous</a> <a href="/quiz/{{que_id | add:"1" }}/"  class = "button">Next</a></p>
+
           {% else %}
             <p>Thank you for taking the test <a href="{% url 'logout' %}">click here </a> to exit</p>
           {% endif %}
@@ -42,14 +43,17 @@
       {% endfor %}
     {% endif %}
 
-{% else %}
-  <p>unauthorised access</p>
-{% endif %}
-
+  {% else %}
+    <p>unauthorised access</p>
+  {% endif %}
 {% endblock %}
 
 {% block progress %}
-<a href="/quiz/1/">1</a>
-<a href="/quiz/2/">2</a>
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+  {% for i in range %}
+    {% if forloop.counter == que_id %}
+      <a href="/quiz/{{ forloop.counter }}/" class = "thisquestion"> {{ forloop.counter }}</a>
+    {% else %}
+      <a href="/quiz/{{ forloop.counter }}/"> {{ forloop.counter }}</a>
+    {% endif%}
+  {% endfor %}
 {% endblock %}

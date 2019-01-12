@@ -9,12 +9,10 @@ html, body{
   min-height: 100vh;
   padding: 15px;
   background: #f2f2f2;
-
 }
 
 .wrapper{
   min-width: 900px;
-  min-height: 700px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -34,6 +32,7 @@ html, body{
 
 .wrapperforcontent {
   background: #fff;
+  min-height: 400px;
   overflow: hidden;
   align-items: stretch;
   padding: 15px;
@@ -50,6 +49,17 @@ html, body{
 .progress a{
   color: #fff;
   text-decoration: none;
+
+}
+
+.progress a:hover{
+  color: #f7786b;
+}
+
+.thisquestion{
+  background-color: #034f84;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .button {

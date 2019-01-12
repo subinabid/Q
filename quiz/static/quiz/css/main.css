@@ -1,28 +1,55 @@
 html, body{
-  height: 100%
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
-.banner {
-  background: #0C4B33;
-  padding: 10px 0 6px;
-  color: #44B78B;
+.container-main {
   width: 100%;
-  font-weight: 800;
-  font-size: 1.3rem
+  min-height: 100vh;
+  padding: 15px;
+  background: #f2f2f2;
+
 }
 
-.container {
-  margin: 0 auto;
-  padding: 0px 50px 3px 50px;
-}
-
-.footer {
-  background: #0C4B33;
-  padding: 3px 0 0 0;
-  color: #44B78B;
-  width: 100%;
+.wrapper{
+  min-width: 900px;
+  min-height: 700px;
   position: absolute;
-  bottom: 0;
+  left: 50%;
+  top: 50%;
+  margin-top: -250px;
+  margin-left: -450px;
+}
+
+.header{
+  background-color: #44B78B;
+  color:#ffffff;
+  font-weight: 800;
+  font-size: 1.3rem;
+  padding: 15px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.wrapperforcontent {
+  background: #fff;
+  overflow: hidden;
+  align-items: stretch;
+  padding: 15px;
+}
+
+.progress{
+  background-color: #44B78B;
+  color:#ffffff;
+  font-weight: 800;
+  font-size: 1.3rem;
+  padding: 15px;
+}
+
+.progress a{
+  color: #fff;
+  text-decoration: none;
 }
 
 .button {
@@ -31,17 +58,8 @@ html, body{
   border-radius: 2px;
   color: #fff;
   text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
   text-decoration: none;
   display: inline-block;
-}
-
-.centre-stage{
-  background-color: #D3D3D3
-  height: 500px;
-  widht: 400px;
-  position: absolute;
-  left: 50%
-  top: 50%
-  margin-left: -200px;
-
 }

@@ -26,9 +26,9 @@
           {% endif %}
 
           {% if que_id == 1 %}
-            <p><a href="/quiz/{{que_id | add:"1" }}/" class = "button">next</a></p>
+            <p><a href="/quiz/{{que_id | add:"1" }}/" class = "button">Next</a></p>
           {% elif que_id < 4 %}
-            <p><a href="/quiz/{{que_id | add:"-1" }}/"  class = "button">previous</a> <a href="/quiz/{{que_id | add:"1" }}/"  class = "button">next</a></p>
+            <p><a href="/quiz/{{que_id | add:"-1" }}/"  class = "button">Previous</a> <a href="/quiz/{{que_id | add:"1" }}/"  class = "button">Next</a></p>
           {% else %}
             <p>Thank you for taking the test <a href="{% url 'logout' %}">click here </a> to exit</p>
           {% endif %}
@@ -46,4 +46,10 @@
   <p>unauthorised access</p>
 {% endif %}
 
+{% endblock %}
+
+{% block progress %}
+<a href="/quiz/1/">1</a>
+<a href="/quiz/2/">2</a>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
 {% endblock %}

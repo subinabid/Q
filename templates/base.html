@@ -6,22 +6,28 @@
   <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
   <link rel = "stylesheet" href= "{% static 'quiz/css/main.css' %}">
 </head>
+
 <body>
 
-<div class="banner">
-  <div class="container">
+<div class="container-main">
+  <div class="wrapper">
+
+    <div class="header">
       Quiz@Kudgi
-  </div>
-</div>
+    </div>
 
-<div class="container">
-  {% block content %}{% endblock %}
-</div>
+    <div class="wrapperforcontent">
+      {% block content %}{% endblock %}
+    </div>
 
-<div class="footer">
-  <div class="container">
-    Quiz by R Seshadri. App by Subin Abid.  A django app, powered by Heroku
+    <div class="progress">
+        {% block progress %}{% endblock %}
+    </div>
+
   </div>
+
+
+
 </div>
 
 </body>

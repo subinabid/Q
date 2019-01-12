@@ -4,7 +4,7 @@
 
 {% block hello %}
   {% if user.is_authenticated %}
-     - Hi Employee {{ user.username }}, here is a summary of answers you submitted
+     - Hi {{ user.username }}, here is a summary of answers you submitted
   {% endif %}
 {% endblock %}
 

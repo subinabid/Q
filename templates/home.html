@@ -7,11 +7,11 @@
   Hi {{ user.username }}!
   <p><a href="{% url 'quiz' %}">You may proceed to take the quiz </a></p>
   <p>or </p>
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <p><a href="{% url 'logout' %}">Logout</a></p>
 {% else %}
   <p>Hello!</p>
   <p>Welcome to NTPC Kudgi's monthly quiz program </p>
   <p>You may please login to take the quiz</p>
-  <a href="{% url 'login' %}" class="button">login</a>
+  <a href="{% url 'login' %}" class="button">Login</a>
 {% endif %}
 {% endblock %}

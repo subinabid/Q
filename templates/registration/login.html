@@ -8,6 +8,8 @@
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Login</button>
+  <button type="submit" class = "button">Login</button>
 </form>
+<br>
+User name is employee id without leading zeros, eg 103599, 1700 etc
 {% endblock %}

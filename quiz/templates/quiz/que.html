@@ -33,7 +33,7 @@
 
           {% if que_id == 1 %}
             <p><a href="/quiz/{{que_id | add:"1" }}/" class = "button">Next</a></p>
-          {% elif que_id < 10 %}
+          {% elif que_id < 20 %}
             <p><a href="/quiz/{{que_id | add:"-1" }}/"  class = "button">Previous</a> <a href="/quiz/{{que_id | add:"1" }}/"  class = "button">Next</a></p>
           {% else %}
             <p>Thank you for taking the test <a href="{% url 'submission' %}">click here </a> to view your submission</p>

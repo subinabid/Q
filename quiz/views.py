@@ -13,7 +13,7 @@ def que(request, que_id):
     has_media = q.has_media
     form1 = OptionsForm()
     form2 = AnswerForm()
-    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(10)}
+    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(20)}
     return render(request, 'quiz/que.html', context)
 
 def submit(request, que_id):
@@ -25,7 +25,7 @@ def submit(request, que_id):
     has_media = q.has_media
     form1 = OptionsForm()
     form2 = AnswerForm()
-    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(10)}
+    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(20)}
     return render(request, 'quiz/que.html', context)
 
 def submission(request):

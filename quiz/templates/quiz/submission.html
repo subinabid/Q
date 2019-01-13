@@ -16,6 +16,8 @@
         <tr> <td> {{ sub.question_id }}</td> <td>{{ sub.answer}}</td> </tr>
       {% endfor%}
     </table>
+
+    Answers will be published at {{ date }}, {{ time }}
     <p>You may please <a href="{% url 'logout' %}" class="button">Logout</a></p>
 
   {% else %}

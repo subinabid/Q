@@ -4,7 +4,7 @@
 
 {% block content %}
   {% if user.is_authenticated %}
-    <h2>Hi Employee {{ user.username }}!</h2>
+    <h2>Hi {{ user.username }}!</h2>
     <p>You have successfully logged in</p>
     <p>Questions will be displayed to you one after the other</p>
     <p>You can answer them or skip the question and proceed to the next question </p>

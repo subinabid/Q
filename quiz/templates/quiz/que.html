@@ -53,6 +53,16 @@
   {% endif %}
 {% endblock %}
 
+{% block answer%}
+  {% if answer == ''%}
+    <p></p>
+  {% else%}
+    <p>You answered this question with: <b><em> {{ answer }} </em></b> </p>
+    <p><em>If you submit an answer again, the existing answer will be replaced with the new answer</em></p>
+  {% endif %}
+{% endblock%}
+
+
 {% block progress %}
   {% for i in range %}
     {% if forloop.counter == que_id %}

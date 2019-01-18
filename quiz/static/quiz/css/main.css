@@ -16,11 +16,18 @@ body{
 }
 
 .wrapper{
-  min-width: 900px;
+  width: 900px;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-top: -250px;
+  margin-top: -300px;
+  margin-left: -450px;
+}
+
+.wrapperforsubmission{
+  width: 900px;
+  position: absolute;
+  left: 50%;
   margin-left: -450px;
 }
 
@@ -36,7 +43,15 @@ body{
 
 .wrapperforcontent {
   background: #fff;
-  min-height: 400px;
+  min-height: 250px;
+  overflow: hidden;
+  align-items: stretch;
+  padding: 15px;
+}
+
+.wrapperforanswer {
+  background: #fff;
+  min-height: 50px;
   overflow: hidden;
   align-items: stretch;
   padding: 15px;

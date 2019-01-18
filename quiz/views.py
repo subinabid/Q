@@ -56,6 +56,6 @@ def submit(request, que_id):
     return render(request, 'quiz/que.html', context)
 
 def submission(request):
-    subanswers = answers.objects.filter(user = request.user.get_username())
+    subanswers = answers.objects.filter(user = request.user.get_username()).order_by('question_id')
     context = {'subanswers': subanswers}
     return render(request,'quiz/submission.html', context)

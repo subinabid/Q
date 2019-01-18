@@ -12,3 +12,7 @@ class answers(models.Model):
     user = models.CharField(max_length=10)
     answer = models.CharField(max_length = 200)
     ans_date = models.DateTimeField(auto_now = True, blank = True)
+
+class attempt(models.Model):
+    user = models.CharField(max_length = 10)
+    login_date = models.DateTimeField(auto_now = True, blank = True)

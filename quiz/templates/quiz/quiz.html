@@ -12,8 +12,20 @@
     <p>You may proceed to <a href="1">question 1</a></p>
     <p><a href="{% url 'logout' %}" class="button">Logout</a></p>
 
+    {% if previous_attempt == 1 %}
+      <p>You have already taken the quiz once</p>
+      <p>Multiple attempts are not allowed</p>
+    {% endif%}
+
   {% else %}
+
+    {% if previous_attempt == 1 %}
+      <p>You have already taken the quiz once</p>
+      <p>Multiple attempts are not allowed</p>
+    {% endif%}
+
     <p>unauthorised access</p>
+
   {% endif %}
 
 {% endblock %}

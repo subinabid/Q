@@ -1,17 +1,29 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import question, answers
+from django.contrib.auth import logout
+from .models import question, answers, attempt
 from .forms import AnswerForm, OptionsForm
 
 def quiz(request):
-    return render(request, 'quiz/quiz.html',{})
+    try: #check if the user has logged in before
+        l = attempt.objects.get(user = request.user.get_username())
+    except: #the user has not logged in before
+        previous_attempt = 0
+        if not request.user.is_staff:
+            la = attempt(user = request.user.get_username())
+            la.save()
+    else: #the user has logged in before
+        previous_attempt = 1
+        logout(request)
+    context = {'previous_attempt' : previous_attempt}
+    return render(request, 'quiz/quiz.html', context)
 
 def que(request, que_id):
-    try:
+    try: # checking if the question is already answered
         a = answers.objects.get(question_id = que_id, user = request.user.get_username())
-    except:
+    except: # if there is no entry, python will trrow an error, then set answer to blank
         ans_text = ''
-    else:
+    else: # if no error is thrown, that indicates that an answer exists in the db
         ans_text = a.answer
     que_list = question.objects.filter(question_id = que_id )
     q = question.objects.get(question_id = que_id)
@@ -23,9 +35,8 @@ def que(request, que_id):
     return render(request, 'quiz/que.html', context)
 
 def submit(request, que_id):
-
     try:
-        a = answers.objects.get(question_id = que_id, user = request.user.get_username())  #check if the answer already exists
+        a = answers.objects.get(question_id = que_id, user = request.user.get_username())   # checking if the question is already answered
     except: #if answers doesnot exist, it will throw an exception. Save the submission to database
         p = answers(question_id = que_id, user = request.user.get_username(), answer = request.POST.get("answer") )
         p.save()

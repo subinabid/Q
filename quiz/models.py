@@ -3,6 +3,8 @@ from django.db import models
 class quizid(models.Model):
     quiz_id = models.IntegerField()
     quiz_date = models.DateTimeField()
+    def __string__(self):
+        return self.quiz_id
 
 class question(models.Model):
     quiz_id = models.ForeignKey(quizid, on_delete = models.CASCADE)

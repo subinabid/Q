@@ -1,23 +1,31 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import logout
-from .models import question, answers, attempt
+from .models import quizid, question, answers, attempt
 from .forms import AnswerForm, OptionsForm
 
+#Get the quiz_id
+quiz_id_var = 1
+################################################################################
+
+# View for quiz home page
 def quiz(request):
     try: #check if the user has logged in before
-        l = attempt.objects.get(user = request.user.get_username())
+        l = attempt.objects.get(user = request.user.get_username(), quiz_id = quiz_id_var)
     except: #the user has not logged in before
         previous_attempt = 0
         if not request.user.is_staff:
-            la = attempt(user = request.user.get_username())
+            la = attempt(quiz_id = quiz_id_var, user = request.user.get_username())
             la.save()
     else: #the user has logged in before
         previous_attempt = 1
         logout(request)
     context = {'previous_attempt' : previous_attempt}
     return render(request, 'quiz/quiz.html', context)
+################################################################################
 
+
+# View for displaying questions
 def que(request, que_id):
     try: # checking if the question is already answered
         a = answers.objects.get(question_id = que_id, user = request.user.get_username())
@@ -33,7 +41,10 @@ def que(request, que_id):
     form2 = AnswerForm()
     context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(20), 'answer':ans_text}
     return render(request, 'quiz/que.html', context)
+################################################################################
 
+
+# View for submiting answers
 def submit(request, que_id):
     try:
         a = answers.objects.get(question_id = que_id, user = request.user.get_username())   # checking if the question is already answered
@@ -54,8 +65,12 @@ def submit(request, que_id):
     form2 = AnswerForm()
     context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(20), 'answer':ans_text}
     return render(request, 'quiz/que.html', context)
+################################################################################
 
+
+# View for final page
 def submission(request):
     subanswers = answers.objects.filter(user = request.user.get_username()).order_by('question_id')
     context = {'subanswers': subanswers}
     return render(request,'quiz/submission.html', context)
+################################################################################

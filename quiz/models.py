@@ -1,11 +1,11 @@
 from django.db import models
 
-class quizid(models.Model)
+class quizid(models.Model):
     quiz_id = models.IntegerField()
     quiz_date = models.DateTimeField()
 
 class question(models.Model):
-    quiz_id = models.ForeignKey(quiz_id, on_delete = models.CASCADE)
+    quiz_id = models.ForeignKey(quizid, on_delete = models.CASCADE)
     question_id = models.IntegerField()
     question_text = models.TextField()
     question_ans = models.TextField()

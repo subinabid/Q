@@ -70,7 +70,7 @@ def submit(request, que_id):
 
 # View for final page
 def submission(request):
-    subanswers = answers.objects.filter(user = request.user.get_username()).order_by('question_id')
+    subanswers = answers.objects.filter(quiz_id = quiz_id_var, user = request.user.get_username()).order_by('question_id')
     context = {'subanswers': subanswers}
     return render(request,'quiz/submission.html', context)
 ################################################################################

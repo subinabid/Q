@@ -13,18 +13,16 @@
     <p><a href="{% url 'logout' %}" class="button">Logout</a></p>
 
     {% if previous_attempt == 1 %}
-      <p>You have already taken the quiz once</p>
-      <p>Multiple attempts are not allowed</p>
+      <p>You have already taken the quiz # {{ quiz_id }} </p>
+      <p>Please come back next week for a new quiz</p>
     {% endif%}
 
   {% else %}
 
     {% if previous_attempt == 1 %}
-      <p>You have already taken the quiz once</p>
-      <p>Multiple attempts are not allowed</p>
+      <p>You have already taken the quiz # {{ quiz_id }} </p>
+      <p>Please come back next week for a new quiz</p>
     {% endif%}
-
-    <p>Unauthorised access</p>
 
   {% endif %}
 

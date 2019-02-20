@@ -47,14 +47,14 @@ def que(request, que_id):
 # View for submiting answers
 def submit(request, que_id):
     try:
-        a = answers.objects.get(question_id = que_id, user = request.user.get_username())   # checking if the question is already answered
+        a = answers.objects.get(quiz_id = quiz_id_var, question_id = que_id, user = request.user.get_username())   # checking if the question is already answered
     except: #if answers doesnot exist, it will throw an exception. Save the submission to database
-        p = answers(question_id = que_id, user = request.user.get_username(), answer = request.POST.get("answer") )
+        p = answers(quiz_id = quiz_id_var, question_id = que_id, user = request.user.get_username(), answer = request.POST.get("answer") )
         p.save()
         ans_text = request.POST.get("answer") #pass the value from POST to template
     else: #if answer already exist, delete it and save the new value
         a.delete()
-        p = answers(question_id = que_id, user = request.user.get_username(), answer = request.POST.get("answer") )
+        p = answers(quiz_id = quiz_id_var, question_id = que_id, user = request.user.get_username(), answer = request.POST.get("answer") )
         p.save()
         ans_text = request.POST.get("answer") #pass the value from POST to template
     que_list = question.objects.filter(question_id = que_id )
@@ -63,7 +63,7 @@ def submit(request, que_id):
     has_media = q.has_media
     form1 = OptionsForm()
     form2 = AnswerForm()
-    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(20), 'answer':ans_text}
+    context = {'quiz_id': quiz_id_var, 'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(20), 'answer':ans_text}
     return render(request, 'quiz/que.html', context)
 ################################################################################
 

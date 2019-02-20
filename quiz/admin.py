@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import quizid, question, answers, attempt
 
 class quizidadmin(admin.ModelAdmin):
-    list_display = ('quiz_id', 'quiz_date')
+    list_display = ('quiz_id', 'quiz_date', 'ans_date' )
 
 class questionadmin(admin.ModelAdmin):
     list_display = ('quiz_id', 'question_id', 'question_text', 'question_ans', 'has_options', 'has_media')

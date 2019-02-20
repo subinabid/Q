@@ -20,7 +20,7 @@ def quiz(request):
     else: #the user has logged in before
         previous_attempt = 1
         logout(request)
-    context = {'previous_attempt' : previous_attempt}
+    context = {'quiz_id': quiz_id_var, 'previous_attempt' : previous_attempt}
     return render(request, 'quiz/quiz.html', context)
 ################################################################################
 
@@ -28,7 +28,7 @@ def quiz(request):
 # View for displaying questions
 def que(request, que_id):
     try: # checking if the question is already answered
-        a = answers.objects.get(question_id = que_id, user = request.user.get_username())
+        a = answers.objects.get(quiz_id = quiz_id_var, question_id = que_id, user = request.user.get_username())
     except: # if there is no entry, python will trrow an error, then set answer to blank
         ans_text = ''
     else: # if no error is thrown, that indicates that an answer exists in the db
@@ -39,7 +39,7 @@ def que(request, que_id):
     has_media = q.has_media
     form1 = OptionsForm()
     form2 = AnswerForm()
-    context = {'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(20), 'answer':ans_text}
+    context = {'quiz_id': quiz_id_var,'que_list': que_list, 'que_id' : que_id,'has_options':has_options, 'has_media':has_media, 'form1' : form1, 'form2' : form2, 'range': range(20), 'answer':ans_text}
     return render(request, 'quiz/que.html', context)
 ################################################################################
 

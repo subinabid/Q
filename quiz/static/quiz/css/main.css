@@ -16,12 +16,12 @@ body{
 }
 
 .wrapper{
-  width: 900px;
+  width: 1000px;
   position: absolute;
   left: 50%;
   top: 50%;
   margin-top: -300px;
-  margin-left: -450px;
+  margin-left: -500px;
 }
 
 .wrapperforsubmission{

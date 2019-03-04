@@ -8,14 +8,9 @@
     <p>You have successfully logged in</p>
     <p>Questions will be displayed one after the other</p>
     <p>You can answer or skip the question and proceed to the next one </p>
-    <p>Youy attempt an unanswered question later</p>
+    <p>You can attempt an unanswered question later, but once you log out, you cannot login again</p>
     <p>You may proceed to <a href="1">question 1</a></p>
     <p><a href="{% url 'logout' %}" class="button">Logout</a></p>
-
-    {% if previous_attempt == 1 %}
-      <p>You have already taken the quiz # {{ quiz_id }} </p>
-      <p>Please come back next week for a new quiz</p>
-    {% endif%}
 
   {% else %}
 

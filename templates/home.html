@@ -3,15 +3,21 @@
 {% block title %}Quiz @ NTPC Kudgi{% endblock %}
 
 {% block content %}
+
 {% if user.is_authenticated %}
-  <h2>Hi {{ user.username }}!</h2>
+
+  <h2>Hi {{ user.first_name }} {{ user.last_name }} !</h2>
   <p><a href="{% url 'quiz' %}">You may proceed to take the quiz </a></p>
   <p>or </p>
   <p><a href="{% url 'logout' %}">Logout</a></p>
+
 {% else %}
+
   <p>Hello!</p>
   <p>Welcome to NTPC Kudgi's monthly quiz program </p>
   <p>You may please login to take the quiz</p>
   <a href="{% url 'login' %}" class="button">Login</a>
+
 {% endif %}
+
 {% endblock %}

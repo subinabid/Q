@@ -3,7 +3,7 @@
 
 {% block hello %}
   {% if user.is_authenticated %}
-     - Hi {{ user.username }}!, You may take quiz # {{ quiz_id}}
+     - Hi {{ user.first_name }} {{ user.last_name }} !, You may take quiz # {{ quiz_id}}
   {% endif %}
 {% endblock %}
 
